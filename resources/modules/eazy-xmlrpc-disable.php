@@ -51,8 +51,8 @@ if ( ! defined( 'WPINC' ) ) {
   }
 
   // Eazy XMLRPC callback
-  function eazy_xmlrpc_callback() {
-    _e('<input name="eazy_xmlrpc_checkbox" id="eazy_xmlrpc_checkbox" type="checkbox" value="1" class="code" ' . checked( 1, get_option( 'eazy_xmlrpc_checkbox' ), false ) . ' /> ', 'ez-site-settings');
+  function eazy_xmlrpc_remove_callback() {
+    _e('<input name="eazy_xmlrpc_remove_checkbox" id="eazy_xmlrpc_remove_checkbox" type="checkbox" value="1" class="code" ' . checked( 1, get_option( 'eazy_xmlrpc_remove_checkbox' ), false ) . ' /> ', 'ez-site-settings');
   }
 
 
