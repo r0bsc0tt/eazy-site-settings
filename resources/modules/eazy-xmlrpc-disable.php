@@ -18,21 +18,36 @@ if ( ! defined( 'WPINC' ) ) {
     
     // Add the field to disable xmlrpc pingback
     add_settings_field(
-      'eazy_xmlrpc_checkbox',
-      __('Remove XMLRPC pingback.ping', 'ez-site-settings'),
-      'eazy_xmlrpc_callback',
+      'eazy_xmlrpc_pingback_checkbox',
+      __('pingback.ping & pingback.extensions.getPingbacks', 'ez-site-settings'),
+      'eazy_xmlrpc_ping_callback',
+      'eazy-site-settings',
+      'eazy_xmlrpc_settings'
+    );
+
+    // Add the field to remove xmlrpc
+    add_settings_field(
+      'eazy_xmlrpc_remove_checkbox',
+      __('Disable All XMLRPC', 'ez-site-settings'),
+      'eazy_xmlrpc_remove_callback',
       'eazy-site-settings',
       'eazy_xmlrpc_settings'
     );
 
     // Register the setting
-    register_setting( 'eazy-site-settings', 'eazy_xmlrpc_checkbox' );
+    register_setting( 'eazy-site-settings', 'eazy_xmlrpc_pingback_checkbox' );
+    register_setting( 'eazy-site-settings', 'eazy_xmlrpc_remove_checkbox' );
   
   }
 
   // eazy xmlrpc section callback
   function eazy_xmlrpc_settings_callback_function() {
-    _e('<p>You can disable XMLRPC pingback.ping & pingback.extensions.getPingbacks if your site does not use it.</p>', 'ez-site-settings');
+    _e('<p>You can disable XMLRPC completely or just disable pingback.ping & pingback.extensions.getPingbacks.</p>', 'ez-site-settings');
+  }
+
+  // Eazy XMLRPC callback
+  function eazy_xmlrpc_ping_callback() {
+    _e('<input name="eazy_xmlrpc_pingback_checkbox" id="eazy_xmlrpc_pingback_checkbox" type="checkbox" value="1" class="code" ' . checked( 1, get_option( 'eazy_xmlrpc_pingback_checkbox' ), false ) . ' /> ', 'ez-site-settings');
   }
 
   // Eazy XMLRPC callback
@@ -42,11 +57,15 @@ if ( ! defined( 'WPINC' ) ) {
 
 
 //if XMLRPC checkbox is checked unset pingback methods
-if (get_option( 'eazy_xmlrpc_checkbox' ) === '1') {
+if (get_option( 'eazy_xmlrpc_pingback_checkbox' ) === '1') {
   add_filter( 'xmlrpc_methods', 'eazy_xmlrpc_ping_disable' );
   function eazy_xmlrpc_ping_disable( $methods ) {
      unset( $methods['pingback.ping'] );
      unset( $methods['pingback.extensions.getPingbacks'] );
      return $methods;
   } ;
+}
+//if remove XMLRPC checkbox is checked, set xmlrpc to return false
+if (get_option( 'eazy_xmlrpc_remove_checkbox' ) === '1') {
+  add_filter('xmlrpc_enabled', '__return_false');
 }
