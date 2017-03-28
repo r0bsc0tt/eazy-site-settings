@@ -8,6 +8,8 @@ if ( ! defined( 'WPINC' ) ) {
 require_once(plugin_dir_path(__FILE__).'modules/eazy-http-headers.php');
 require_once(plugin_dir_path(__FILE__).'modules/eazy-remove-emoji.php');
 require_once(plugin_dir_path(__FILE__).'modules/eazy-xmlrpc-disable.php');
+require_once(plugin_dir_path(__FILE__).'modules/eazy-login-logo.php');
+require_once(plugin_dir_path(__FILE__).'modules/eazy-analytics.php');
 
 // add settings page
 add_action( 'admin_menu', 'eazy_site_settings' );
