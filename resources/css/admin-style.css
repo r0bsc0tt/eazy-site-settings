@@ -1,0 +1,35 @@
+#eazy-site-settings-title {
+  color: #69c;
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  text-shadow: 0 1px #036, 1px 0 #036, 1px 1px #036, 1px 2px #036, 2px 1px #036, 2px 2px #036;
+}
+
+.eazy-site-settings-section {
+  line-height: 1;
+  padding-bottom: 1rem;
+}
+.eazy-site-settings-section .eazy-site-settings-section-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-bottom: .25rem;
+}
+.eazy-site-settings-section p {
+  font-weight: 800;
+  margin-bottom: .25rem;
+}
+
+.button#submit {
+  background-color: #69c;
+  border-radius: .5rem;
+  color: white;
+  font-weight: 800;
+  margin: 0 auto;
+  width: 250px;
+}
+.button#submit:hover {
+  background-color: white;
+  color: black;
+  text-shadow: none;
+}

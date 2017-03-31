@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 
   // eazy emoji section callback
   function eazy_emoji_settings_callback_function() {
-    _e('<p>You can remove WP Emoji support if your site does not use it to remove the css & js it adds to head.</p>', 'ez-site-settings');
+    _e('<p class="eazy-site-settings-section-descrip">You can remove WP Emoji support if your site does not use it to remove the css & js it adds to head.</p>', 'ez-site-settings');
   }
 
   // Eazy Emoji callback

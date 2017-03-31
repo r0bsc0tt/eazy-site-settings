@@ -42,7 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
 
   // eazy xmlrpc section callback
   function eazy_xmlrpc_settings_callback_function() {
-    _e('<p>You can disable XMLRPC completely or just disable pingback.ping & pingback.extensions.getPingbacks.</p>', 'ez-site-settings');
+    _e('<p class="eazy-site-settings-section-descrip">You can disable XMLRPC completely or just disable pingback.ping & pingback.extensions.getPingbacks.</p>', 'ez-site-settings');
   }
 
   // Eazy XMLRPC callback

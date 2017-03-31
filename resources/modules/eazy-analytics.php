@@ -16,7 +16,7 @@ if ( ! defined( 'WPINC' ) ) {
       'eazy-site-settings'
     );
     
-    // Add the field for X-Frame
+    // Add the field for the analytics code
     add_settings_field(
       'eazy_analytics_code',
       __('Google Analytics', 'ez-site-settings'),
@@ -31,16 +31,19 @@ if ( ! defined( 'WPINC' ) ) {
   } 
 
 function eazy_analytics_main_callback() {
-  _e('Insert your Google Analytics Javascript tracking code in the field below.');
+  _e('<p class="eazy-site-settings-section-descrip">Insert your Google Analytics Tracking ID in the field below.</p>');
+  _e('<p class="eazy-site-settings-section-descrip">The Tracking ID format should be similar to UA-12345678-1</p>');
 }
 
 // analytics callback
 function eazy_analytics_callback() {
-_e('<input name="eazy_analytics_code" id="eazy_analytics_code" type="textarea" value="'.get_option( 'eazy_analytics_code' ).'" class="code"  /> ', 'ez-site-settings');
+  _e('<input name="eazy_analytics_code" id="eazy_analytics_code" type="textarea" value="'.get_option( 'eazy_analytics_code' ).'" class="code"  /> ', 'ez-site-settings');
 }
 
 function eazy_analytics_script() {?>
-<script type="text/javascript"><?php _e(get_option( 'eazy_analytics_code' )); ?></script>
+<script src="https://cdn.jsdelivr.net/ga-lite/latest/ga-lite.min.js" async></script>
+<script>var galite = galite || {}; galite.UA = '<?php _e(get_option( 'eazy_analytics_code' )); ?>';</script>
+
 <?php }
 
 if (get_option( 'eazy_analytics_code' ) !== '' || NULL) {

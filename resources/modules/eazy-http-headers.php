@@ -55,7 +55,7 @@ if ( ! defined( 'WPINC' ) ) {
   
   // Settings section callback
   function eazy_httphead_settings_callback_function() {
-    _e('<p>Set your HTTP headers to secure your site.</p>', 'ez-site-settings');
+    _e('<p class="eazy-site-settings-section-descrip">Set your HTTP headers to secure your site.</p>', 'ez-site-settings');
   }
 
   // X-Frame callback

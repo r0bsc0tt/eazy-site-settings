@@ -42,7 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
 
   // eazy login logo section callback
   function eazy_login_logo_settings_callback_function() {
-    _e('<p>You can add a custom login logo to the wp-admin login screen.</p>', 'ez-site-settings');
+    _e('<p class="eazy-site-settings-section-descrip">You can add a custom login logo to the wp-admin login screen.</p>', 'ez-site-settings');
   }
 
   // Eazy Login Logo callback
@@ -52,7 +52,8 @@ if ( ! defined( 'WPINC' ) ) {
   //image upload callback
   function eazy_login_logo_image_callback() {
     wp_enqueue_media();
-    _e('<input type="button" name="eazy_login_logo_image" id="eazy_login_logo_image" class="button-secondary" value="Upload Image"> <input type="text" name="eazy_login_logo_image_url" id="eazy_login_logo_image_url" class="regular-text" '. checked( 1, get_option( 'eazy_login_logo_image_url' ), false ).' >', 'ez-site-settings');
+    _e('<input type="button" name="eazy_login_logo_image" id="eazy_login_logo_image" class="button-secondary" value="Upload Image">', 'ez-site-settings');
+    _e('<input type="text" name="eazy_login_logo_image_url" id="eazy_login_logo_image_url" class="regular-text" '. checked( 1, get_option( 'eazy_login_logo_image_url' ), false ).' >', 'ez-site-settings');
     ?>
     <script type="text/javascript">
     jQuery(document).ready(function($){
@@ -77,10 +78,9 @@ if ( ! defined( 'WPINC' ) ) {
       // if login logo url is set, add it to the url value field
       if (get_option( 'eazy_login_logo_image_url' ) !== '') { ?>
         jQuery(document).ready(function($){
-          $('#eazy_login_logo_image_url').val('<?php echo get_option("eazy_login_logo_image_url"); ?>');
+          $('#eazy_login_logo_image_url').val('<?php echo get_option('eazy_login_logo_image_url'); ?>');
         });
       <?php } ?>
-      console.log( '<?php print_r(wp_get_attachment_metadata( get_option("eazy_login_logo_image_url") )); ?>' );
     </script> <?php
   }
 
