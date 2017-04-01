@@ -22,6 +22,7 @@ require_once(plugin_dir_path(__FILE__).'resources/modules/eazy-remove-emoji.php'
 require_once(plugin_dir_path(__FILE__).'resources/modules/eazy-xmlrpc-disable.php');
 require_once(plugin_dir_path(__FILE__).'resources/modules/eazy-login-logo.php');
 require_once(plugin_dir_path(__FILE__).'resources/modules/eazy-analytics.php');
+require_once(plugin_dir_path(__FILE__).'resources/modules/eazy-rest-api-disable.php');
 
 
 // add settings page
